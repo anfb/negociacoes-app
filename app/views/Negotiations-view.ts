@@ -3,6 +3,16 @@ import { View } from "./View.js";
 
 export class NegotiationsView extends View<NegotiationRepository>
 {
+    public updateView(elementNegotiation :NegotiationRepository) :void
+    {
+        const template = this.template(elementNegotiation);
+        console.log(template);
+
+        //innerHTML used to update the div negotiationView
+        this.elementview.innerHTML = template;
+
+    }
+
     protected template(elementNegotiation :NegotiationRepository) :string
     {
         return `
@@ -27,16 +37,6 @@ export class NegotiationsView extends View<NegotiationRepository>
                 </tbody>
             </table>
         `;
-    }
-
-    public updateView(elementNegotiation :NegotiationRepository) :void
-    {
-        const template = this.template(elementNegotiation);
-        console.log(template);
-
-        //innerHTML used to update the div negotiationView
-        this.elementview.innerHTML = template;
-
     }
 
     private formatDate(date :Date) :string

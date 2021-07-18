@@ -7,8 +7,6 @@ export abstract class View<T>
         this.elementview = document.querySelector(elementSelector);
     }
 
-    protected abstract template(elementModel : T) :string;
-
     public updateView(elementModel: T) :void
     {
         const template = this.template(elementModel);
@@ -16,4 +14,6 @@ export abstract class View<T>
         //innerHTML used to update the div negotiationView
         this.elementview.innerHTML = template;
     }
+
+    protected abstract template(elementModel : T) :string;
 }
