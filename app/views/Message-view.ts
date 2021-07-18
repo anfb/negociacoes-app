@@ -2,7 +2,7 @@ import { View } from "./View.js";
 
 export class MessageView extends View<string>
 {
-    public template(messageElement :string) :string
+    protected template(messageElement :string) :string
     {
         return `
             <p class="alert alert-info">${messageElement}</p>

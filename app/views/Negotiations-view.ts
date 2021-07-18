@@ -3,7 +3,7 @@ import { View } from "./View.js";
 
 export class NegotiationsView extends View<NegotiationRepository>
 {
-    public template(elementNegotiation :NegotiationRepository) :string
+    protected template(elementNegotiation :NegotiationRepository) :string
     {
         return `
             <table class="table table-hover table-bordered">

@@ -7,7 +7,7 @@ export abstract class View<T>
         this.elementview = document.querySelector(elementSelector);
     }
 
-    abstract template(elementModel : T) :string;
+    protected abstract template(elementModel : T) :string;
 
     public updateView(elementModel: T) :void
     {
