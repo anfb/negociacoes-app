@@ -1,15 +1,9 @@
 import { NegotiationRepository } from "../models/NegotiationRepository.js";
+import { View } from "./View.js";
 
-export class NegotiationsView
+export class NegotiationsView extends View<NegotiationRepository>
 {
-    private elementview :HTMLElement;
-
-    constructor(elementSelector :string)
-    {
-        this.elementview = document.querySelector(elementSelector);
-    }
-
-    private template(elementNegotiation :NegotiationRepository) :string
+    public template(elementNegotiation :NegotiationRepository) :string
     {
         return `
             <table class="table table-hover table-bordered">

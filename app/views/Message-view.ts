@@ -1,12 +1,8 @@
-export class MessageView
-{
-    private elementView :HTMLElement
-    constructor(elementSelector :string)
-    {
-        this.elementView = document.querySelector(elementSelector);
-    }
+import { View } from "./View.js";
 
-    private template(messageElement :string) :string
+export class MessageView extends View<string>
+{
+    public template(messageElement :string) :string
     {
         return `
             <p class="alert alert-info">${messageElement}</p>
@@ -16,6 +12,6 @@ export class MessageView
     public updateView(messageElement :string) :void
     {
         const template = this.template(messageElement);
-        this.elementView.innerHTML = template;
+        this.elementview.innerHTML = template;
     }
 }
