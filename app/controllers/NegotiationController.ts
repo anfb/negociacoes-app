@@ -1,5 +1,5 @@
-import { Negotiation } from "../models/Negotiation";
-import { NegotiationRepository } from "../models/NegotiationRepository";
+import { Negotiation } from "../models/Negotiation.js";
+import { NegotiationRepository } from "../models/NegotiationRepository.js";
 
 export class NegotiationController
 {
