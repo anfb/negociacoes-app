@@ -1,4 +1,4 @@
-export class View<T>
+export abstract class View<T>
 {
     protected elementview :HTMLElement;
 
@@ -7,10 +7,7 @@ export class View<T>
         this.elementview = document.querySelector(elementSelector);
     }
 
-    public template(elementModel : T) :string
-    {
-        throw Error("Need implement method.");
-    }
+    abstract template(elementModel : T) :string;
 
     public updateView(elementModel: T) :void
     {
@@ -18,6 +15,5 @@ export class View<T>
    
         //innerHTML used to update the div negotiationView
         this.elementview.innerHTML = template;
-
     }
 }
