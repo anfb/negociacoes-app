@@ -12,7 +12,7 @@ export class NegotiationController
     {
         this.inputDate = document.querySelector('#date');
         this.inputAmount = document.querySelector('#amount');
-        this.inputCashValue = document.querySelector('cashvalue');
+        this.inputCashValue = document.querySelector('#cashvalue');
     }
 
     public add(): void
