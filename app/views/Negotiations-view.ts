@@ -18,7 +18,7 @@ export class NegotiationsView extends View<NegotiationRepository>
                     ${elementNegotiation.getNegotiations().map(negotiation => {
                         return `
                             <tr>
-                                <td>${new Intl.DateTimeFormat().format(negotiation.date)}</td>
+                                <td>${this.formatDate(negotiation.date)}</td>
                                 <td>${negotiation.amount}</td>
                                 <td>${negotiation.cashValue}</td>
                             </tr>
@@ -37,5 +37,10 @@ export class NegotiationsView extends View<NegotiationRepository>
         //innerHTML used to update the div negotiationView
         this.elementview.innerHTML = template;
 
+    }
+
+    private formatDate(date :Date) :string
+    {
+        return new Intl.DateTimeFormat().format(date);
     }
 }
