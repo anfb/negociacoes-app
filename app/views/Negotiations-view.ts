@@ -24,7 +24,7 @@ export class NegotiationsView
                     ${elementNegotiation.getNegotiations().map(negotiation => {
                         return `
                             <tr>
-                                <td>${negotiation.date}</td>
+                                <td>${new Intl.DateTimeFormat().format(negotiation.date)}</td>
                                 <td>${negotiation.amount}</td>
                                 <td>${negotiation.cashValue}</td>
                             </tr>
