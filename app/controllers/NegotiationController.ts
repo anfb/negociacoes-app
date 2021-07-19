@@ -1,3 +1,4 @@
+import { DaysOfWeek } from "../enums/DaysOfWeek.js";
 import { Negotiation } from "../models/Negotiation.js";
 import { NegotiationRepository } from "../models/NegotiationRepository.js";
 import { MessageView } from "../views/Message-view.js";
@@ -22,15 +23,23 @@ export class NegotiationController
     public add(): void
     {
         const negotiation = this.createNegotiation();
-        this.negotiationList.addNegotiation(negotiation);
-        this.negotiationView.updateView(this.negotiationList);
-
-        this.messageView.updateView("Negotiation has been added!");
-
-        this.cleanForm();
+        if (this.IsDayOfWeek(negotiation.date)) {
+            this.negotiationList.addNegotiation(negotiation);
+            this.negotiationView.updateView(this.negotiationList);
+    
+            this.messageView.updateView("Negotiation has been added!");
+            this.cleanForm();
+        } else {
+            this.messageView.updateView("Weekend is not valid!");
+        }
 
         console.log(this.negotiationList.getNegotiations());
 
+    }
+
+    private IsDayOfWeek(date :Date) :boolean
+    {
+        return date.getDay() > DaysOfWeek.SUNDAY && date.getDay() < DaysOfWeek.SATURDAY;
     }
 
     private createNegotiation(): Negotiation
