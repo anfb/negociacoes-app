@@ -18,4 +18,14 @@ export class Negotiation{
         {
             return this.amount * this.cashValue;
         }
+
+        public static createNegotiation(dataString :string, amountString :string, valueString :string) :Negotiation
+        {
+            const exp = /-/g;
+            const date = new Date(dataString.replace(exp, ','));
+            const amout = parseInt(amountString);
+            const cashValue = parseFloat(valueString);
+
+            return new Negotiation(date, amout, cashValue);
+        }
 }

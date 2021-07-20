@@ -22,13 +22,19 @@ export class NegotiationController
 
     public add(): void
     {
-        const negotiation = this.createNegotiation();
+        const negotiation = Negotiation.createNegotiation(
+                            this.inputDate.value, 
+                            this.inputAmount.value, 
+                            this.inputCashValue.value);
+        
         if (this.IsDayOfWeek(negotiation.date)) {
+
             this.negotiationList.addNegotiation(negotiation);
             this.negotiationView.updateView(this.negotiationList);
     
             this.messageView.updateView("Negotiation has been added!");
             this.cleanForm();
+
         } else {
             this.messageView.updateView("Weekend is not valid!");
         }
@@ -40,16 +46,6 @@ export class NegotiationController
     private IsDayOfWeek(date :Date) :boolean
     {
         return date.getDay() > DaysOfWeek.SUNDAY && date.getDay() < DaysOfWeek.SATURDAY;
-    }
-
-    private createNegotiation(): Negotiation
-    {
-        const exp = /-/g;
-        const date = new Date(this.inputDate.value);
-        const amout = parseInt(this.inputAmount.value);
-        const cashValue = parseFloat(this.inputCashValue.value);
-
-        return new Negotiation(date, amout, cashValue);
     }
 
     private cleanForm() :void
