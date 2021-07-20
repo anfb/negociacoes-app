@@ -15,9 +15,9 @@ export class NegotiationController
 
     constructor()
     {
-        this.inputDate = document.querySelector('#date');
-        this.inputAmount = document.querySelector('#amount');
-        this.inputCashValue = document.querySelector('#cashvalue');
+        this.inputDate = document.querySelector('#date') as HTMLInputElement;
+        this.inputAmount = <HTMLInputElement>document.querySelector('#amount'); // you can be used this way.
+        this.inputCashValue = document.querySelector('#cashvalue') as HTMLInputElement;
     }
 
     public add(): void
